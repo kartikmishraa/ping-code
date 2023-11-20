@@ -1,0 +1,10 @@
+@import "../../../../styles.scss";
+
+nav {
+  background-color: $clr-light-purple;
+  padding: 0.6vmax 1.2vmax;
+  button {
+    color: black;
+    font-weight: 800;
+  }
+}

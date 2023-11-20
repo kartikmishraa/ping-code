@@ -1,0 +1,85 @@
+<!-- Mat Spinner goes here -->
+<div *ngIf="isLoading" class="spinner-holder">
+  <mat-spinner color="accent"></mat-spinner>
+</div>
+
+<!-- Page Container -->
+<div class="container d-flex flex-column" *ngIf="!isLoading">
+  <!-- Heading Container -->
+  <div class="d-flex justify-content-center justify-content-md-end m-4">
+    <h1 class="titleText italify fw-900">
+      Login<span class="pinkify">.</span>
+    </h1>
+  </div>
+
+  <!-- Main Container -->
+  <div class="d-flex flex-row justify-content-around mt-2">
+    <!-- Tagline Container -->
+    <div class="col-6 d-none d-md-block">
+      <h1 class="taglineSpacing">
+        Time to <span class="pinkify fw-900">reconnect</span> with your team.
+        Login in and stay in sync with the
+        <span class="pinkify fw-900">heartbeat</span> of your projects.
+      </h1>
+    </div>
+
+    <!-- Login Form starts -->
+    <form
+      [formGroup]="loginForm"
+      class="d-flex flex-column align-items-center align-items-md-end col-4"
+    >
+      <!-- Email ID -->
+      <mat-form-field>
+        <mat-label>Email ID</mat-label>
+        <input type="email" matInput formControlName="email" />
+        <!-- Required Error -->
+        <mat-error
+          *ngIf="
+            loginForm.get('email') &&
+            loginForm.get('email')?.hasError('required')
+          "
+          >Email is REQUIRED</mat-error
+        >
+        <!-- Email Error -->
+        <mat-error
+          *ngIf="
+            loginForm.get('email') && loginForm.get('email')?.hasError('email')
+          "
+          >Invalid Email ID</mat-error
+        >
+      </mat-form-field>
+
+      <!-- Password -->
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password" />
+        <!-- Required Error -->
+        <mat-error
+          *ngIf="
+            loginForm.get('password') &&
+            loginForm.get('password')?.hasError('required')
+          "
+          >Password is REQUIRED</mat-error
+        >
+      </mat-form-field>
+
+      <!-- Form Buttons -->
+      <div
+        class="d-flex flex-column align-items-center align-items-md-end gap-2"
+      >
+        <button
+          mat-raised-button
+          id="submitBtn"
+          [ngClass]="{ disabledBtn: loginForm.invalid }"
+          [disabled]="loginForm.invalid ? 'true' : 'false'"
+          (click)="handleSubmit()"
+        >
+          Submit
+        </button>
+        <button mat-raised-button (click)="router.redirectToUrl('/register')">
+          New user? <span class="pinkify fw-900">Register.</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

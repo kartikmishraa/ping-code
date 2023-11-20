@@ -1,0 +1,19 @@
+@import "../../../styles.scss";
+
+header {
+  padding-top: 2vmax;
+  padding-bottom: 2vmax;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid $clr-light-purple;
+  margin-bottom: 2vmax;
+}
+
+.title {
+  font-size: 5vmax;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7vmax;
+  cursor: pointer;
+}

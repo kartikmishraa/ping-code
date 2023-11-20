@@ -1,0 +1,43 @@
+@import "../../../styles.scss";
+
+.container-fluid {
+  background-color: $clr-purple;
+  height: 100%;
+}
+
+app-header {
+  color: white;
+}
+
+table {
+  background-color: $clr-light-purple;
+  border-bottom: 2px solid $clr-purple;
+
+  th {
+    color: $clr-pink;
+    text-transform: uppercase;
+    font-weight: 900;
+    border-bottom: 2px solid $clr-purple;
+  }
+
+  td {
+    // color: white;
+    padding: 0.9vmax;
+    font-weight: 400;
+  }
+}
+
+.mat-column-position {
+  border-right: 2px solid $clr-purple;
+  text-align: center;
+}
+.mat-column-designation {
+  text-align: center;
+}
+.mat-column-departmentName {
+  text-align: center;
+}
+.mat-column-adminActions {
+  border-left: 2px solid $clr-purple;
+  text-align: center;
+}

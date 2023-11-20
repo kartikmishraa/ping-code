@@ -1,0 +1,72 @@
+<div class="container-fluid">
+  <app-header></app-header>
+
+  <!-- Mat Spinner goes here -->
+  <div *ngIf="isLoading" class="spinner-holder">
+    <mat-spinner color="accent"></mat-spinner>
+  </div>
+
+  <div
+    class="container d-flex flex-column gap-3 justify-content-center align-items-center"
+    *ngIf="!isLoading"
+  >
+    <!-- heading -->
+    <h4 class="title fw-300">
+      Make an <span class="fw-900 italify">Announcement.</span>
+    </h4>
+
+    <!-- Form -->
+    <form
+      [formGroup]="makeAnnouncementForm"
+      class="d-flex flex-column"
+      style="width: 30vmax"
+    >
+      <!-- Content -->
+      <mat-form-field>
+        <mat-label>Announcement</mat-label>
+        <input type="text" matInput formControlName="content" />
+        <!-- Required Error -->
+        <mat-error
+          *ngIf="
+            makeAnnouncementForm.get('name') &&
+            makeAnnouncementForm.get('name')?.hasError('required')
+          "
+          >Phone no. is REQUIRED</mat-error
+        >
+      </mat-form-field>
+
+      <!-- Author -->
+      <mat-form-field>
+        <mat-label>Author</mat-label>
+        <input type="text" matInput formControlName="author" />
+        <!-- Required Error -->
+        <mat-error
+          *ngIf="
+            makeAnnouncementForm.get('name') &&
+            makeAnnouncementForm.get('name')?.hasError('required')
+          "
+          >Phone no. is REQUIRED</mat-error
+        >
+      </mat-form-field>
+
+      <!-- Buttons -->
+      <div class="d-flex gap-4">
+        <button
+          mat-raised-button
+          (click)="handleSubmit()"
+          [disabled]="makeAnnouncementForm.valid ? 'false' : 'true'"
+          [ngClass]="tempBtn.disabled ? 'disabledBtn' : ''"
+          #tempBtn
+        >
+          <span class="pinkify fw-900">Submit</span>
+        </button>
+        <button mat-raised-button (click)="reset()">
+          <span class="fw-900">Reset</span>
+        </button>
+        <button mat-raised-button (click)="router.redirectToUrl('/dashboard')">
+          <span class="fw-900">Back</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

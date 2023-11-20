@@ -1,0 +1,13 @@
+@import "../../../styles.scss";
+
+.container {
+  padding-top: 2vmax;
+  height: 75vh;
+  width: 75vw;
+  background-color: $clr-light-purple;
+
+  h1 {
+    border-bottom: 2px solid white;
+    padding-bottom: 1vmax;
+  }
+}

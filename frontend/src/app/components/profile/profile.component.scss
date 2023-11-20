@@ -1,0 +1,29 @@
+@import "../../../styles.scss";
+
+.container-fluid {
+  background-color: $clr-purple;
+  height: 100%;
+}
+
+app-header {
+  color: white;
+}
+
+main {
+  background-color: $clr-light-purple;
+  border-radius: 1.2vmax;
+  padding: 1.2vmax;
+}
+
+.title {
+  border-bottom: 2px solid black;
+  padding: 1vmax;
+}
+
+img {
+  //   border: 3px solid black;
+  height: 17vmax;
+  width: 17vmax;
+  border-radius: 17vmax;
+  overflow: hidden;
+}

@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <app-header></app-header>
+
+  <!-- Main Container -->
+  <main class="container d-flex flex-column gap-2">
+    <!-- Heading -->
+    <h1 class="title titleText pinkify fw-900">My Profile</h1>
+
+    <!-- Profile Box -->
+    <div class="container mt-3">
+      <div class="d-flex flex-row justify-content-start align-items-end gap-3">
+        <!-- Profile Picture -->
+        <img [src]="DEFAULT_IMG" alt="profile-pic" />
+
+        <div class="d-flex flex-row w-75 justify-content-between">
+          <!-- User name, desgination, dept. name -->
+          <div>
+            <h1 class="fw-600" style="color: #18aecb">{{ user.name }}</h1>
+            <h5 class="fw-400">{{ user.designation }}</h5>
+            <h5 class="fw-400">{{ user.departmentName }}</h5>
+          </div>
+          <!-- User contact details -->
+          <div>
+            <h3 class="fw-300" style="color: #18aecb">Contact Details</h3>
+            <h5 class="fw-400">
+              <mat-icon>call</mat-icon> {{ user.phoneNumber }}
+            </h5>
+            <h5 class="fw-400">
+              <mat-icon>alternate_email</mat-icon> {{ user.email }}
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Profile Btn -->
+    <div class="d-flex justify-content-center">
+      <button
+        mat-raised-button
+        class="mt-4 w-50"
+        (click)="router.redirectToUrl('profile/edit')"
+      >
+        <span class="pinkify fw-900">EDIT PROFILE</span>
+      </button>
+    </div>
+  </main>
+
+  <div class="d-flex justify-content-center mt-3">
+    <button mat-raised-button (click)="goBack()" class="w-25">
+      <span class="fw-900">Go to Dashboard</span>
+    </button>
+  </div>
+</div>

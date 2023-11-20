@@ -1,0 +1,53 @@
+<section
+  class="col-12 d-flex flex-column flex-md-row justify-content-md-center mt-3 mt-md-0 gap-5 gap-md-0"
+  id="main-section"
+>
+  <!-- Tagline -->
+  <div class="col-12 col-md-5 mt-3 mt-md-0">
+    <h1 class="tagline taglineSpacing">
+      Empowering teams, one
+      <span class="pinkify italify fw-900">ping.</span> at a time
+    </h1>
+  </div>
+
+  <!-- Side Buttons -->
+  <div
+    class="col-12 col-md-4 d-flex flex-column align-items-center justify-content-md-around align-items-md-center"
+  >
+    <div
+      class="d-flex flex-column justify-content-around align-items-center align-items-md-end gap-3"
+    >
+      <!-- Get Started Button -->
+      <button
+        mat-fab
+        extended
+        id="getStartedBtn"
+        (click)="router.redirectToUrl('/register')"
+      >
+        <mat-icon>label_important</mat-icon>
+        Get Started
+      </button>
+
+      <!-- Login Button -->
+      <button
+        mat-fab
+        extended
+        id="loginBtn"
+        (click)="router.redirectToUrl('/login')"
+      >
+        <mat-icon>supervised_user_circle</mat-icon>
+        Login
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Bottom Image Large Screen-->
+<section class="col-12 d-flex mt-4" id="landing-img-container">
+  <img
+    src="https://blog.vantagecircle.com/content/images/2020/08/Employee-Communication.png"
+    alt="img-1"
+    class="img img-1"
+    id="img-1"
+  />
+</section>

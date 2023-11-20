@@ -1,0 +1,129 @@
+<div class="container-fluid">
+  <app-header></app-header>
+  <!-- Mat Spinner goes here -->
+  <div *ngIf="isLoading" class="spinner-holder">
+    <mat-spinner color="accent"></mat-spinner>
+  </div>
+
+  <div
+    class="container d-flex flex-column gap-3 justify-content-center align-items-center"
+    *ngIf="!isLoading"
+  >
+    <!-- heading -->
+    <h4 class="title fw-300">
+      Editing for <span class="fw-900">{{ user.email }}</span>
+    </h4>
+
+    <!-- Edit Form -->
+    <form
+      [formGroup]="editProfileForm"
+      class="d-flex flex-column"
+      style="width: 30vmax"
+    >
+      <!-- Name -->
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input type="text" matInput formControlName="name" />
+        <!-- Required Error -->
+        <mat-error
+          *ngIf="
+            editProfileForm.get('name') &&
+            editProfileForm.get('name')?.hasError('required')
+          "
+          >Phone no. is REQUIRED</mat-error
+        >
+      </mat-form-field>
+
+      <!-- Phone -->
+      <mat-form-field>
+        <mat-label>Phone</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="phoneNumber"
+          maxlength="10"
+          appNumberOnly
+        />
+        <!-- Required Error -->
+        <mat-error
+          *ngIf="
+            editProfileForm.get('phoneNumber') &&
+            editProfileForm.get('phoneNumber')?.hasError('required')
+          "
+          >Phone no. is REQUIRED</mat-error
+        >
+        <!-- Phone Pattern Error -->
+        <mat-error
+          *ngIf="
+            editProfileForm.get('phoneNumber') &&
+            editProfileForm.get('phoneNumber')?.hasError('pattern')
+          "
+          >Enter a valid 10 digit phone number</mat-error
+        >
+      </mat-form-field>
+
+      <!-- Designation -->
+      <mat-form-field>
+        <mat-label>Designation</mat-label>
+        <mat-select formControlName="designation">
+          <mat-option
+            *ngFor="let designation of LIST_OF_DESIGNATIONS"
+            [value]="designation"
+            style="font-size: 14px"
+          >
+            {{ designation }}
+          </mat-option>
+        </mat-select>
+        <!-- Required Error -->
+        <mat-error
+          *ngIf="
+            editProfileForm.get('designation') &&
+            editProfileForm.get('designation')?.hasError('required')
+          "
+          >Phone no. is REQUIRED</mat-error
+        >
+      </mat-form-field>
+
+      <!-- Department Name -->
+      <mat-form-field>
+        <mat-label>Department Name</mat-label>
+        <mat-select formControlName="departmentName">
+          <mat-option
+            *ngFor="let deptName of LIST_OF_DEPARTMENTS"
+            [value]="deptName"
+            style="font-size: 14px"
+          >
+            {{ deptName }}
+          </mat-option>
+        </mat-select>
+        <!-- Required Error -->
+        <mat-error
+          *ngIf="
+            editProfileForm.get('departmentName') &&
+            editProfileForm.get('departmentName')?.hasError('required')
+          "
+          >Phone no. is REQUIRED</mat-error
+        >
+      </mat-form-field>
+
+      <!-- Buttons -->
+      <div class="d-flex gap-4">
+        <button
+          mat-raised-button
+          (click)="handleSubmit()"
+          [disabled]="editProfileForm.valid ? 'false' : 'true'"
+          [ngClass]="tempBtn.disabled ? 'disabledBtn' : ''"
+          #tempBtn
+        >
+          <span class="pinkify fw-900">Submit</span>
+        </button>
+        <button mat-raised-button (click)="handleReset()">
+          <span class="fw-900">Reset</span>
+        </button>
+        <button mat-raised-button (click)="goBack()">
+          <span class="fw-900">Back</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

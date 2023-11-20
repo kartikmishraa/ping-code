@@ -1,0 +1,24 @@
+@import "../../../styles.scss";
+
+#landing-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-1 {
+  height: 18vmax;
+  width: 50vmax;
+}
+
+.tagline {
+  font-size: 4vmax;
+}
+
+#getStartedBtn {
+  background-color: $clr-pink;
+}
+#loginBtn {
+  background-color: white;
+  color: $clr-purple;
+}

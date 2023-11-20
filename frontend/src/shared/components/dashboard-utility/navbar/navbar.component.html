@@ -1,0 +1,24 @@
+<nav class="d-flex flex-row gap-3">
+  <button mat-button (click)="router.redirectToUrl('/directory')">
+    Users Directory
+  </button>
+  <button mat-button (click)="router.redirectToUrl('/profile')">
+    My Profile
+  </button>
+  <button mat-button (click)="router.redirectToUrl('/chats')">Chats</button>
+  <button
+    mat-button
+    (click)="router.redirectToUrl('/dashboard')"
+    disabled="true"
+    class="disabledBtn"
+  >
+    Group Chats
+  </button>
+  <button
+    mat-button
+    *ngIf="isAdmin"
+    (click)="router.redirectToUrl('/announcements')"
+  >
+    <span class="pinkify fw-900 italify">Make Announcement</span>
+  </button>
+</nav>

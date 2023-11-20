@@ -1,0 +1,13 @@
+@import "../../../../styles.scss";
+
+.container {
+  color: white;
+  padding: 1vmax 2.4vmax;
+
+  ul {
+    li {
+      list-style: none;
+      padding: 1vmax;
+    }
+  }
+}

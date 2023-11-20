@@ -1,0 +1,82 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "bootstrap/scss/bootstrap";
+
+$clr-purple: #3f1140;
+$clr-light-purple: #decdf9;
+// $clr-light-purple: #d7c2d8;
+$clr-yellow: #f5b048;
+$clr-blue: #36cae6;
+$clr-green: #31b178;
+$clr-pink: #e51255;
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+button {
+  border-radius: 1vmax;
+}
+
+.titleText {
+  letter-spacing: 0.5vmax;
+}
+
+.taglineSpacing {
+  word-spacing: 0.6vmax;
+  letter-spacing: 0.3vmax;
+}
+
+.pinkify {
+  color: $clr-pink;
+}
+.italify {
+  font-style: italic;
+}
+.fw-200 {
+  font-weight: 200;
+}
+.fw-300 {
+  font-weight: 300;
+}
+.fw-400 {
+  font-weight: 400;
+}
+.fw-500 {
+  font-weight: 500;
+}
+.fw-600 {
+  font-weight: 600;
+}
+.fw-700 {
+  font-weight: 700;
+}
+.fw-800 {
+  font-weight: 800;
+}
+.fw-900 {
+  font-weight: 900;
+}
+
+.img {
+  border-radius: 0.8vmax;
+}
+
+.spinner-holder {
+  position: absolute;
+  top: 45%;
+  left: 47%;
+}
+.faded {
+  opacity: 0.2;
+}
+
+.disabledBtn {
+  opacity: 0.6;
+}

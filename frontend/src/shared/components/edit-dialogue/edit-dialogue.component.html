@@ -1,0 +1,131 @@
+<div class="container d-flex flex-column">
+  <h1 class="pinkify fw-900">Editing User Profile</h1>
+  <div class="middle-section d-flex flex-row col-11">
+    <div>
+      <h2 class="m-3">
+        Updating user with email id
+        <span class="pinkify italify fw-900"> {{ data.email }} </span>
+      </h2>
+      <br />
+      <div
+        style="
+          padding-left: 7px;
+          margin-left: 7px;
+          border-left: 2px solid white;
+        "
+      >
+        <p class="fw-600">Name: {{ data.name }}</p>
+        <p class="fw-600">Phone No: {{ data.phoneNumber }}</p>
+        <p class="fw-600">Designation: {{ data.designation }}</p>
+        <p class="fw-600">Department: {{ data.departmentName }}</p>
+      </div>
+    </div>
+    <form class="d-flex flex-column">
+      <div class="input-section d-flex flex-column align-items-center mt-4">
+        <!-- Name -->
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="name"
+            [placeholder]="data.name"
+          />
+          <!-- Required Error -->
+          <mat-error
+            *ngIf="
+              editProfileForm.get('name') &&
+              editProfileForm.get('name')?.hasError('required')
+            "
+            >Phone no. is REQUIRED</mat-error
+          >
+        </mat-form-field>
+
+        <!-- Phone -->
+        <mat-form-field>
+          <mat-label>Phone</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="phoneNumber"
+            maxlength="10"
+            appNumberOnly
+            [placeholder]="data.phoneNumber"
+          />
+          <!-- Required Error -->
+          <mat-error
+            *ngIf="
+              editProfileForm.get('phoneNumber') &&
+              editProfileForm.get('phoneNumber')?.hasError('required')
+            "
+            >Phone no. is REQUIRED</mat-error
+          >
+          <!-- Phone Pattern Error -->
+          <mat-error
+            *ngIf="
+              editProfileForm.get('phoneNumber') &&
+              editProfileForm.get('phoneNumber')?.hasError('pattern')
+            "
+            >Enter a valid 10 digit phone number</mat-error
+          >
+        </mat-form-field>
+
+        <!-- Deisgnation -->
+        <mat-form-field>
+          <mat-label>Designation</mat-label>
+          <mat-select
+            formControlName="designation"
+            [placeholder]="data.designation"
+          >
+            <mat-option
+              *ngFor="let designation of LIST_OF_DESIGNATIONS"
+              [value]="designation"
+              style="font-size: 14px"
+            >
+              {{ designation }}
+            </mat-option>
+          </mat-select>
+          <!-- Required Error -->
+          <mat-error
+            *ngIf="
+              editProfileForm.get('designation') &&
+              editProfileForm.get('designation')?.hasError('required')
+            "
+            >Phone no. is REQUIRED</mat-error
+          >
+        </mat-form-field>
+
+        <!-- Department -->
+        <mat-form-field>
+          <mat-label>Department Name</mat-label>
+          <mat-select
+            formControlName="departmentName"
+            [placeholder]="data.departmentName"
+          >
+            <mat-option
+              *ngFor="let deptName of LIST_OF_DEPARTMENTS"
+              [value]="deptName"
+              style="font-size: 14px"
+            >
+              {{ deptName }}
+            </mat-option>
+          </mat-select>
+          <!-- Required Error -->
+          <mat-error
+            *ngIf="
+              editProfileForm.get('departmentName') &&
+              editProfileForm.get('departmentName')?.hasError('required')
+            "
+            >Phone no. is REQUIRED</mat-error
+          >
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+  <div class="buttons-section d-flex justify-content-end gap-4">
+    <button mat-button (click)="handleSubmit()">Update</button>
+    <button mat-button style="margin-right: 7px" mat-dialog-close>
+      Cancel
+    </button>
+  </div>
+</div>

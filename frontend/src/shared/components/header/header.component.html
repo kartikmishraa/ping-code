@@ -1,0 +1,8 @@
+<header>
+  <p class="title mt-3" (click)="router.redirectToUrl('/')">
+    ping<span class="pinkify italify fw-900">.</span>
+  </p>
+  <button *ngIf="isLoggedIn" mat-fab color="primary" (click)="handleLogout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</header>

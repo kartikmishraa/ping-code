@@ -1,0 +1,20 @@
+@import "../../../styles.scss";
+
+.container-fluid {
+  background-color: $clr-purple;
+  height: 100%;
+}
+
+app-header {
+  color: white;
+}
+
+.container {
+  background-color: $clr-light-purple;
+  border-radius: 1.2vmax;
+  padding: 2vmax;
+}
+
+.title {
+  color: $clr-pink;
+}

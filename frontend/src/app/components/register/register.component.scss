@@ -1,0 +1,10 @@
+@import "../../../styles.scss";
+
+#submitBtn {
+  background-color: $clr-pink;
+  color: white;
+}
+#resetBtn {
+  background-color: white;
+  color: $clr-purple;
+}

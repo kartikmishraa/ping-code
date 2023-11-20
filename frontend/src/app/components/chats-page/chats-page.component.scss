@@ -1,0 +1,107 @@
+@import "../../../styles.scss";
+
+.container-fluid {
+  height: 100%;
+  background-color: $clr-purple;
+  color: white;
+}
+
+.chat-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.chat-box {
+  //   border: 1px solid black;
+  //   width: 50%;
+  height: 75%;
+}
+.chat-header {
+  border-bottom: 2px solid $clr-purple;
+  padding: 1vmax;
+
+  background-color: $clr-light-purple;
+  color: black;
+}
+.chat-section {
+  background-color: $clr-light-purple;
+  color: black;
+
+  padding: 1vmax;
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.chat-input-section {
+  padding: 1vmax;
+  display: flex;
+  flex-direction: row;
+}
+.chat-input {
+  width: 100%;
+}
+.send-button {
+  all: unset;
+  padding: 0.2vmax 0.8vmax;
+}
+
+.chat {
+  padding: 0.4vmax 0.8vmax;
+  display: flex;
+  flex-direction: row;
+}
+.left {
+  justify-content: start;
+}
+.right {
+  justify-content: end;
+  text-align: end;
+}
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.chatbox-name {
+  color: $clr-purple;
+}
+.you {
+  color: $clr-pink;
+}
+.chatbox-receiver-name {
+  color: $clr-purple;
+}
+
+.sidebar {
+  border: 1px solid white;
+}
+
+table {
+  background-color: $clr-purple;
+  button {
+    color: #d8c1fc;
+    font-weight: 900;
+    font-size: 1.2vmax;
+  }
+}
+
+.style-3::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: $clr-light-purple;
+}
+
+.style-3::-webkit-scrollbar {
+  width: 6px;
+  background-color: $clr-light-purple;
+}
+
+.style-3::-webkit-scrollbar-thumb {
+  background-color: black;
+}

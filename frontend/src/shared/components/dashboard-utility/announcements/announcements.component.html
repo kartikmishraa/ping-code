@@ -1,0 +1,12 @@
+<div class="container d-flex flex-column gap-2">
+  <h2 class="titleText fw-700">
+    Announcements<span class="pinkify fw-900">.</span>
+  </h2>
+  <ul class="d-flex flex-column-reverse">
+    <li *ngFor="let a of announcements">
+      <mat-icon style="margin-right: 5px">notification_important</mat-icon
+      >{{ a.content }} -
+      {{ a.author }}
+    </li>
+  </ul>
+</div>

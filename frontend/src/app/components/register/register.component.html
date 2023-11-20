@@ -1,0 +1,125 @@
+<!-- Mat Spinner -->
+<div *ngIf="isLoading" class="spinner-holder">
+  <mat-spinner color="accent"></mat-spinner>
+</div>
+<!-- Page container -->
+<div class="container d-flex flex-column" [ngClass]="{ faded: isLoading }">
+  <!-- Heading Container -->
+  <div class="d-flex justify-content-center justify-content-md-end m-4">
+    <h1 class="titleText italify fw-900">
+      Register<span class="pinkify">.</span>
+    </h1>
+  </div>
+
+  <!-- Main Container -->
+  <div class="d-flex flex-row justify-content-around mt-2">
+    <!-- Tagline Container -->
+    <div class="col-6 d-none d-md-block">
+      <h1 class="taglineSpacing">
+        Join the <span class="pinkify fw-900">collaboration</span> revolution
+        with <span class="pinkify fw-900">ping.</span> Your gateway to seamless
+        <span class="pinkify fw-900">teamwork</span> starts here.
+      </h1>
+    </div>
+
+    <!-- Register Form starts -->
+    <form
+      [formGroup]="registerForm"
+      class="d-flex flex-column align-items-center align-items-md-end col-4"
+    >
+      <!-- Email ID -->
+      <mat-form-field>
+        <mat-label>Email ID</mat-label>
+        <input type="email" matInput formControlName="email" />
+        <!-- Required Error -->
+        <mat-error
+          *ngIf="
+            registerForm.get('email') &&
+            registerForm.get('email')?.hasError('required')
+          "
+          >Email is REQUIRED</mat-error
+        >
+        <!-- Email Error -->
+        <mat-error
+          *ngIf="
+            registerForm.get('email') &&
+            registerForm.get('email')?.hasError('email')
+          "
+          >Invalid Email ID</mat-error
+        >
+      </mat-form-field>
+
+      <!-- Password -->
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password" />
+        <!-- Required Error -->
+        <mat-error
+          *ngIf="
+            registerForm.get('password') &&
+            registerForm.get('password')?.hasError('required')
+          "
+          >This field is REQUIRED</mat-error
+        >
+        <!-- Character Length Error -->
+        <mat-error
+          *ngIf="
+            registerForm.get('password') &&
+            (registerForm.get('password')!.hasError('minlength') ||
+              registerForm.get('password')!.hasError('maxlength'))
+          "
+          >Password should be 6-12 characters</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Enter Password again</mat-label>
+        <input type="password" matInput formControlName="rePassword" />
+        <!-- Required Error -->
+        <mat-error
+          *ngIf="
+            registerForm.get('rePassword') &&
+            registerForm.get('rePassword')?.hasError('required')
+          "
+          >This field is REQUIRED</mat-error
+        >
+        <!-- Character Length Error -->
+        <mat-error
+          *ngIf="
+            registerForm.get('rePassword') &&
+            (registerForm.get('rePassword')!.hasError('minlength') ||
+              registerForm.get('rePassword')!.hasError('maxlength'))
+          "
+          >Password should be 6-12 characters</mat-error
+        >
+        <!-- Mismatch Error -->
+        <mat-error
+          *ngIf="registerForm.get('rePassword')!.hasError('passwordMatch')"
+          >Passwords do not match</mat-error
+        >
+      </mat-form-field>
+
+      <!-- Form Buttons -->
+      <div class="d-flex flex-column align-items-end gap-2">
+        <div class="d-flex gap-3">
+          <button
+            mat-raised-button
+            id="submitBtn"
+            [ngClass]="{ disabledBtn: registerForm.invalid }"
+            [disabled]="registerForm.invalid ? 'true' : 'false'"
+            (click)="handleSubmit()"
+          >
+            Submit
+          </button>
+          <button mat-raised-button id="resetBtn" (click)="handleReset()">
+            Reset
+          </button>
+        </div>
+        <button mat-raised-button (click)="router.redirectToUrl('/login')">
+          Already a user? <span class="pinkify fw-900">Login.</span>
+        </button>
+      </div>
+    </form>
+    <!-- Register Form ends -->
+  </div>
+</div>

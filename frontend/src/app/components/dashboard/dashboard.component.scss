@@ -1,0 +1,22 @@
+@import "../../../styles.scss";
+
+.container-fluid {
+  background-color: $clr-purple;
+  height: 100%;
+}
+
+app-header {
+  color: white;
+}
+
+.container {
+  width: 100%;
+}
+
+app-navbar {
+  width: 100%;
+}
+
+.left-block {
+  border-right: 2px solid $clr-light-purple;
+}

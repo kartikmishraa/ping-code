@@ -1,0 +1,19 @@
+<div class="container d-flex flex-column">
+  <h1 class="pinkify fw-900">Deleting User Profile</h1>
+  <div>
+    <h2 class="m-3">
+      Are you sure you want to delete the following user: - <br />
+      Name: <span class="pinkify italify fw-900"> {{ data.name }}</span>
+      <br />
+      Email: <span class="pinkify italify fw-900"> {{ data.email }} </span>
+    </h2>
+    <br />
+  </div>
+
+  <div class="buttons-section d-flex justify-content-end gap-4">
+    <button mat-button (click)="handleDelete()">Delete</button>
+    <button mat-button style="margin-right: 7px" mat-dialog-close>
+      Cancel
+    </button>
+  </div>
+</div>
